@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html class="h-100">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>租俱網</title>
+	<!-- 引用Bootstrap -->
+	<link rel="stylesheet" href="assets/dist/css/bootstrap.min.css">
+	<script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- 引用jQuery -->
+	<script src="scripts/jquery.min.js"></script>
+	<script src="scripts/jquery.cookie.js"></script>
+	<!-- 引用外部javascript -->
+	<script src="scripts/GetCookie.js"></script>
+	<script src="scripts/SetCookie.js"></script>
+	<!-- 下拉式選單 -->
+	<script src="scripts/popper.min.js"></script>
+	<!-- Bootstrap時間挑選器 -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.min.css">
+	<!-- 彈跳視窗樣式 -->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="sweetalert2.all.min.js"></script>
+	<style>
+		body{
+			background-color:rgba(225,245,241,0.947);
+			/*
+            background-image:url("images/back.png");
+            background-size:cover;
+            background-repeat:repeat no-repeat;
+            */
+        }
+        #center{
+        	text-align:center;
+        }
+        #mainContext{
+        	margin-top:75px;
+        }
+        #slideshow{
+        	padding-top:6%;
+        }
+	</style>
+</head>
+<body class="d-flex flex-column h-100">
+	<!-- 標題導覽列 -->
+	<header>
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+			<div class="container-fluid">
+      			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        			<span class="navbar-toggler-icon"></span>
+      			</button>
+      			<div class="collapse navbar-collapse" id="navbarCollapse">
+      				<span class="navbar-brand">租俱網</span>
+        			<ul class="navbar-nav me-auto mb-0 mb-md-0">
+          				<li class="nav-item">
+            				<a class="nav-link" aria-current="page" href="login.jsp">會員中心</a>
+          				</li>
+          				<li class="nav-item">
+            				<a class="nav-link" href="products.jsp">前往商城</a>
+          				</li>
+          				<li class="nav-item">
+            				<a class="nav-link" href="#about">關於我們</a>
+          				</li>
+        			</ul>
+      			</div><!-- collapse -->
+    		</div><!-- container-fluid -->
+		</nav>
+	</header>
+	<div class="container-fluid" id="mainContext">
+		<!-- 
+		property 設定:
+		m - 設定 margin 的類別
+		p - 設定 padding 的類別
+		
+		sides 設定:
+		t - 設定 margin-top 或是 padding-top 的類別
+		b - 設定 margin-bottom 或是 padding-bottom 的類別
+		s - 在 LTR 設定 margin-left 或是 padding-left， RTL 設定 margin-right 或是 padding-right
+		e - 在 LTR 設定 margin-right or padding-right， RTL 設定 margin-left 或是 padding-left
+		x - 同時設定 *-left 和 *-right
+		y - 同時設定 *-top 和 *-bottom
+		空白 - 同時設定 margin 或 padding 在元素的四個邊緣
+		
+		size 設定:
+		0 - 設定 margin 或是 padding 為 0
+		1 - (預設) 設定 margin 或是 padding 為 $spacer * .25
+		2 - (預設) 設定 margin 或是 padding 為 $spacer * .5
+		3 - (預設) 設定 margin 或是 padding 為 $spacer
+		4 - (預設) 設定 margin 或是 padding 為 $spacer * 1.5
+		5 - (預設) 設定 margin 或是 padding 為 $spacer * 3
+		auto - 設定 margin 為 auto
+		-->
+		<main class="mx-auto">
+  			<div class="container-fluid">
+    			<div class="row">
+    				<!-- 幻燈片效果，盡量找相同大小的圖片 -->
+    				<div class="col-12 col-md-6" align="center" id="slideshow"><!-- 小螢幕的時候佔12行，當螢幕比sm還要大時，就佔6行 -->
+    					<img src="images/slide1.jpg" class="img-fluid img-thumbnail rounded" style="width:640px;height:360px">
+    					<img src="images/slide2.jpg" class="img-fluid img-thumbnail rounded" style="width:640px;height:360px;display:none"><!-- 一開始先把圖片藏起來，作為幻燈片使用 -->
+    					<img src="images/slide3.jpg" class="img-fluid img-thumbnail rounded" style="width:640px;height:360px;display:none">
+    					<img src="images/slide4.jpg" class="img-fluid img-thumbnail rounded" style="width:640px;height:360px;display:none">
+    					<img src="images/slide5.jpg" class="img-fluid img-thumbnail rounded" style="width:640px;height:360px;display:none">
+    					<img src="images/slide6.jpg" class="img-fluid img-thumbnail rounded" style="width:640px;height:360px;display:none">
+    				</div><!-- col-md-6 -->
+    				<div class="col-12 col-md-6"><!-- 小螢幕的時候佔12行，當螢幕比sm還要大時，就佔6行 -->
+    					<div class="container">
+    						<div id="establish">
+    							<h1 align="center">創立理念</h1>
+        						<p>
+        							現今社會房地產不斷在漲價，多數人以租屋的方式暫時擁有屬於自己的避風港。<br>
+        							但是租屋所附加的家具電器往往無法滿足自己所求，當遇到此狀況的時候，就只能在購買新品以及二手用品之間做選擇。<br>
+        							然而新品在經濟上是一筆大開銷，還需要大範圍收集資料與比較。<br>
+        							相較之下，二手用品價格相對優惠，但二手市場的價格差異大，商品內容完整度不一，而且兩者都需要考量到退租後家具的處理方式。<br>
+        							租俱網幫您解決這些問題，不只提供各種類型的家俱或電器任君挑選，搬運問題與退租後的處理方式都幫您一併包辦，給予您最好的優質服務。
+        						</p>
+    						</div>
+    						<div id="intro">
+    							<h1 align="center">公司介紹</h1>
+        						<p>
+        							租俱網創立於2020-02-02。是一家務實、專注、專業、並且重視服務的台灣企業。<br>
+        							為了響應環保與解決租客或商辦的家具需求，因此提供了租借服務，出租大型家具給消費者。<br>
+        							除了滿足顧客對便利的需求，更重要的好處是藉由租賃延長使用壽命，顯著地減少碳足跡。<br>
+        							本公司的家具租期彈性，從最短一個月租期開始，彈性延長。賦予每個顧客自由選擇的權利。<br>
+        							不只如此，租賃管家全天候為您服務，損害維修、布套清潔、搬運安裝一次包辦！
+        						</p>
+        						<h1 align="center">服務內容</h1>
+    							<h4>租俱網提供了:</h4>
+    							<ul>
+    								<li>家具與電器的租賃服務</li>
+    								<li>租賃商品的搬運與安裝</li>
+    								<li>租賃期間的修繕與維護</li>
+    								<li>租期結束後的相關處理</li>
+    							</ul>
+    						</div>
+    					</div>
+    				</div><!-- col-md-6 -->
+    			</div><!-- row -->
+  			</div><!-- container -->
+		</main>
+	</div><!-- container -->
+	<footer class="footer mx-auto mt-auto py-0" id="about">
+		<div class="container-fluid">
+			<p>
+    			租俱網 電話:07-0112233 地址:高雄市一一區二二路33號 電子信箱:kart321@yahoo.com<br>
+    			Copyright &copy;2022-2023 All Rights Reserved 請尊重智慧財產、著作權為租俱網，轉載必究
+            </p>
+  		</div>
+	</footer>
+	<script>
+		/*幻燈片功能*/
+		var slideshow=document.getElementById("slideshow");
+		var slides=slideshow.getElementsByTagName("img");
+		var idx=0;
+		function changeSlide(){
+			/*原始寫法*/
+			/*slides[idx].style.display="none";*/
+			/*idx=(idx+1)%slides.length;*/
+			/*slides[idx].style.display="block";*/
+			$(slides[idx]).fadeOut(500);
+			idx=(idx+1)%slides.length;
+			$(slides[idx]).delay(500).fadeIn(500);
+		}
+		setInterval(changeSlide,3000);
+	</script>
+</body>
+</html>
