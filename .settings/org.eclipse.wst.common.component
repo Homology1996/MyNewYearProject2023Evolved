@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="ProjectEvolved">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/WebContent/assets"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/WebContent/scripts"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/WebContent/images"/>
+        <property name="context-root" value="ProjectEvolved"/>
+        <property name="java-output-path" value="/ProjectEvolved/build/classes"/>
+    </wb-module>
+</project-modules>
